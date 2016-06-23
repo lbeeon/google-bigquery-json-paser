@@ -12,114 +12,119 @@
 Input
 
 	{
-    "glossary": {
-        "title": "example glossary",
-		"GlossDiv": {
-            "title": "S",
-			"GlossList": {
-                "GlossEntry": {
-                    "ID": "SGML",
-					"SortAs": "SGML",
-					"GlossTerm": "Standard Generalized Markup Language",
-					"Acronym": "SGML",
-					"Abbrev": "ISO 8879:1986",
-					"GlossDef": {
-                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
-						"GlossSeeAlso": ["GML", "XML"]
-                    },
-					"GlossSee": "markup"
-                }
-            }
-        }
-    }
-}
+	    "kind": "person",
+	    "fullName": "John Doe",
+	    "age": 22,
+	    "gender": "Male",
+	    "phoneNumber": {
+	        "areaCode": "206",
+	        "number": "1234567"
+	    },
+	    "children": [
+	        {
+	            "name": "Jane",
+	            "gender": "Female",
+	            "age": "6"
+	        },
+	        {
+	            "name": "John",
+	            "gender": "Male",
+	            "age": "15"
+	        }
+	    ],
+	    "citiesLived": [
+	        {
+	            "place": "Seattle",
+	            "yearsLived": [
+	                "1995"
+	            ]
+	        },
+	        {
+	            "place": "Stockholm",
+	            "yearsLived": [
+	                "2005"
+	            ]
+	        }
+	    ]
+	}
 
 Output
 
-	[  
-	   {  
-	      "name":"glossary",
+	[
+	   {
+	      "name":"kind",
 	      "mode":"NULLABLE",
+	      "type":"STRING"
+	   },
+	   {
+	      "name":"gender",
+	      "mode":"NULLABLE",
+	      "type":"STRING"
+	   },
+	   {
+	      "name":"age",
+	      "mode":"NULLABLE",
+	      "type":"INTEGER"
+	   },
+	   {
+	      "name":"citiesLived",
+	      "mode":"REPEATED",
 	      "type":"RECORD",
-	      "fields":[  
-	         {  
-	            "name":"GlossDiv",
-	            "mode":"NULLABLE",
+	      "fields":[
+	         {
+	            "name":"yearsLived",
+	            "mode":"REPEATED",
 	            "type":"RECORD",
-	            "fields":[  
-	               {  
-	                  "name":"GlossList",
-	                  "mode":"NULLABLE",
-	                  "type":"RECORD",
-	                  "fields":[  
-	                     {  
-	                        "name":"GlossEntry",
-	                        "mode":"NULLABLE",
-	                        "type":"RECORD",
-	                        "fields":[  
-	                           {  
-	                              "name":"GlossDef",
-	                              "mode":"NULLABLE",
-	                              "type":"RECORD",
-	                              "fields":[  
-	                                 {  
-	                                    "name":"GlossSeeAlso",
-	                                    "mode":"REPEATED",
-	                                    "type":"RECORD",
-	                                    "fields":[  
+	            "fields":[
 	
-	                                    ]
-	                                 },
-	                                 {  
-	                                    "name":"para",
-	                                    "mode":"NULLABLE",
-	                                    "type":"STRING"
-	                                 }
-	                              ]
-	                           },
-	                           {  
-	                              "name":"GlossSee",
-	                              "mode":"NULLABLE",
-	                              "type":"STRING"
-	                           },
-	                           {  
-	                              "name":"Acronym",
-	                              "mode":"NULLABLE",
-	                              "type":"STRING"
-	                           },
-	                           {  
-	                              "name":"GlossTerm",
-	                              "mode":"NULLABLE",
-	                              "type":"STRING"
-	                           },
-	                           {  
-	                              "name":"Abbrev",
-	                              "mode":"NULLABLE",
-	                              "type":"STRING"
-	                           },
-	                           {  
-	                              "name":"SortAs",
-	                              "mode":"NULLABLE",
-	                              "type":"STRING"
-	                           },
-	                           {  
-	                              "name":"ID",
-	                              "mode":"NULLABLE",
-	                              "type":"STRING"
-	                           }
-	                        ]
-	                     }
-	                  ]
-	               },
-	               {  
-	                  "name":"title",
-	                  "mode":"NULLABLE",
-	                  "type":"STRING"
-	               }
 	            ]
 	         },
-	         {  
-	            "name":"title",
+	         {
+	            "name":"place",
+	            "mode":"NULLABLE",
+	            "type":"STRING"
+	         }
+	      ]
+	   },
+	   {
+	      "name":"phoneNumber",
+	      "mode":"NULLABLE",
+	      "type":"RECORD",
+	      "fields":[
+	         {
+	            "name":"areaCode",
+	            "mode":"NULLABLE",
+	            "type":"STRING"
+	         },
+	         {
+	            "name":"number",
+	            "mode":"NULLABLE",
+	            "type":"STRING"
+	         }
+	      ]
+	   },
+	   {
+	      "name":"fullName",
+	      "mode":"NULLABLE",
+	      "type":"STRING"
+	   },
+	   {
+	      "name":"children",
+	      "mode":"REPEATED",
+	      "type":"RECORD",
+	      "fields":[
+	         {
+	            "name":"gender",
+	            "mode":"NULLABLE",
+	            "type":"STRING"
+	         },
+	         {
+	            "name":"age",
+	            "mode":"NULLABLE",
+	            "type":"STRING"
+	         },
+	         {
+	            "name":"name",
 	            "mode":"NULLABLE",
 	            "type":"STRING"
 	         }
