@@ -1,5 +1,6 @@
 import os
 import json
+import re
 
 def get_struct(json_data):
 	ret = ""
@@ -40,13 +41,20 @@ def get_struct(json_data):
 def listdir_fullpath(d):
     return [os.path.join(d, f) for f in os.listdir(d)]
 	
+def remove_comments(string):
+    string = re.sub(re.compile("/\*.*?\*/",re.DOTALL ) ,"" ,string) # remove all occurance streamed comments (/*COMMENT */) from string
+    string = re.sub(re.compile("//.*?\n" ) ,"" ,string) # remove all occurance singleline comments (//COMMENT\n ) from string
+    return string
+	
 if __name__ == '__main__':
 	dir_path = './json/'
 	out_path = './bq_schema/'
 	for filename in listdir_fullpath(dir_path):
 		if filename.endswith(".json"):
 			with open(filename) as data_file:
-				data = json.load(data_file)
+				data = str(data_file.read())
+				data = remove_comments(data)
+				data = json.loads(data)
 				result = "[ "
 				result += get_struct(data)
 				result += " ]"
