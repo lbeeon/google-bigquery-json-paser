@@ -41,8 +41,8 @@ def listdir_fullpath(d):
     return [os.path.join(d, f) for f in os.listdir(d)]
 	
 if __name__ == '__main__':
-	dir_path = './json_file'
-	out_path = './schema_file/'
+	dir_path = './json/'
+	out_path = './schema/'
 	for filename in listdir_fullpath(dir_path):
 		if filename.endswith(".json"):
 			with open(filename) as data_file:
@@ -51,7 +51,9 @@ if __name__ == '__main__':
 				result += get_struct(data)
 				result += " ]"
 				basename = os.path.basename(filename)
-				output_name = os.path.splitext(basename)[0]+'.schema' 
+				output_name = os.path.splitext(basename)[0]+'.schema'
+				if not os.path.exists(out_path):
+				    os.makedirs(out_path) 
 				f = open(out_path + output_name, 'w')
 				f.write(result)
 				f.close()
