@@ -1,12 +1,14 @@
 #Google Big Query json schema paser
 
 ##How to use
+
+1. cp bigquery_schema_paser.py
+
+2. Put *.json files in dir "json"
 	
-1. Put *.json files in dir "json_file",
+3. run "python bigquery_schema_paser.py"
 
-2. run "python bigquery_schema_paser.py"
-
-3. Get *.schema files in dir "schema_file"
+4. Get *.schema files in dir "schema"
 
 ##Example
 Input
