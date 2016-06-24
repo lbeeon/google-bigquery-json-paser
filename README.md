@@ -8,7 +8,7 @@
 	
 3. run "python bigquery_schema_paser.py"
 
-4. Get *.schema files in dir "schema"
+4. Get *.schema files in dir "bq_schema"
 
 ##Example
 Input

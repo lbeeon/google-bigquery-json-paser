@@ -42,7 +42,7 @@ def listdir_fullpath(d):
 	
 if __name__ == '__main__':
 	dir_path = './json/'
-	out_path = './schema/'
+	out_path = './bq_schema/'
 	for filename in listdir_fullpath(dir_path):
 		if filename.endswith(".json"):
 			with open(filename) as data_file:
